@@ -38,22 +38,31 @@ public class PaintPanel extends JPanel {
       public void mousePressed(MouseEvent e) {
         // TODO Auto-generated method stub
         switch (currentPainterindex) {
+          //          case 0:
+          //            currentPainter = new Pencil(currentColor, currentSize, CurrentFilled);
+          //            break;
+          //          case 1:
+          //            currentPainter = new Lines(currentColor, currentSize, CurrentFilled);
+          //            break;
+          //          case 2:
+          //            currentPainter = new Oval(currentColor, currentSize, CurrentFilled);
+          //            break;
+          //          case 3:
+          //            currentPainter = new Rect(currentColor, currentSize, CurrentFilled);
+          //            break;
+          //          case 4:
+          //            currentPainter = new RoundRect(currentColor, currentSize, CurrentFilled);
+          //            break;
+          //          case 5:
+          //            currentPainter = new Pencil(Color.white, currentSize, CurrentFilled);
+          //            break;
           case 0:
             currentPainter = new Pencil(currentColor, currentSize, CurrentFilled);
             break;
           case 1:
-            currentPainter = new Lines(currentColor, currentSize, CurrentFilled);
-            break;
-          case 2:
             currentPainter = new Oval(currentColor, currentSize, CurrentFilled);
             break;
-          case 3:
-            currentPainter = new Rect(currentColor, currentSize, CurrentFilled);
-            break;
-          case 4:
-            currentPainter = new RoundRect(currentColor, currentSize, CurrentFilled);
-            break;
-          case 5:
+          case 2:
             currentPainter = new Pencil(Color.white, currentSize, CurrentFilled);
             break;
         }

@@ -1,7 +1,6 @@
 /*
  * HW2 107403549 資管二 涂建名 有做的加分:上一步、存檔
  */
-import java.awt.AWTException;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -33,8 +32,9 @@ import javax.swing.border.TitledBorder;
 public class Main {
 
   private JFrame frame;
-  private String[] toollist = {"\u7b46\u5237", "\u76f4\u7dda", "\u6a62\u5713", "\u77e9\u5f62",
-      "\u5713\u89d2\u77e9\u5f62", "\u6a61\u76ae\u64e6"};
+  //  private String[] toollist = {"\u7b46\u5237", "\u76f4\u7dda", "\u6a62\u5713", "\u77e9\u5f62",
+  //      "\u5713\u89d2\u77e9\u5f62", "\u6a61\u76ae\u64e6"};
+  private String[] toollist = {"\u7b46\u5237", "\u6a62\u5713", "\u6a61\u76ae\u64e6"};
   private JPanel NorthPanel;
   private JRadioButton SmallButton;
   private JRadioButton MiddleButton;
@@ -108,7 +108,7 @@ public class Main {
           int index = ToolChoose_Box.getSelectedIndex();
           // System.out.println(index);
           CenterPanel.setCurrentPainter(index);
-          if (index == 0 || index == 5) {
+          if (index == 0 || index == 2) {
             Fill_CheckBox.setSelected(false);
             Fill_CheckBox.setVisible(false);
           } else {
@@ -160,6 +160,11 @@ public class Main {
       public void itemStateChanged(ItemEvent e) {
         // TODO Auto-generated method stub
         CenterPanel.setCurrentFilled(e.getStateChange() == ItemEvent.SELECTED ? true : false);
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+          SizeChoose_Panel.setVisible(false);
+        } else {
+          SizeChoose_Panel.setVisible(true);
+        }
       }
     });
     NorthPanel.add(Fill_CheckBox);
@@ -168,7 +173,8 @@ public class Main {
     PaintColorButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
-        CenterPanel.setCurrentColor(JColorChooser.showDialog(frame, "����C��", Color.black));
+        CenterPanel.setCurrentColor(
+            JColorChooser.showDialog(frame, "\u7B46\u5237\u984F\u8272", Color.black));
       }
     });
     NorthPanel.add(PaintColorButton);
@@ -193,21 +199,21 @@ public class Main {
       }
     });
 
-    Save_button = new JButton("\u5B58\u6A94");
-    NorthPanel.add(Save_button);
-    Save_button.addActionListener(new ActionListener() {
-
-
-      public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        try {
-          CenterPanel.savePicture();
-        } catch (AWTException e1) {
-          // TODO Auto-generated catch block
-          e1.printStackTrace();
-        }
-      }
-    });
+    //    Save_button = new JButton("\u5B58\u6A94");
+    //    NorthPanel.add(Save_button);
+    //    Save_button.addActionListener(new ActionListener() {
+    //
+    //
+    //      public void actionPerformed(ActionEvent e) {
+    //        // TODO Auto-generated method stub
+    //        try {
+    //          CenterPanel.savePicture();
+    //        } catch (AWTException e1) {
+    //          // TODO Auto-generated catch block
+    //          e1.printStackTrace();
+    //        }
+    //      }
+    //    });
 
     CenterPanel = new PaintPanel();
     CenterPanel.addMouseMotionListener(new MouseMotionListener() {
@@ -237,7 +243,7 @@ public class Main {
     SouthPanel.add(PostionTitleLabel);
 
     Postion_Label = new JLabel("(0,0)");
-    Postion_Label.setFont(new Font("�s�ө���", Font.PLAIN, 19));
+    Postion_Label.setFont(new Font("", Font.PLAIN, 19));
     Postion_Label.setForeground(Color.WHITE);
     SouthPanel.add(Postion_Label);
 
